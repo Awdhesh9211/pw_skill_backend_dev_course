@@ -1,0 +1,40 @@
+import mongoose from "mongoose";//ORM 
+
+/**
+ * name
+ * userId
+ * password
+ * email
+ * userType
+ */
+
+const userSchema=new mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    userId:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    password:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true,
+        lowercase:true,
+        minLength:11,
+        unique:true
+    },
+    userType:{
+        type:String,
+        required:true,
+        default:"CUSTOMER",
+        enum:["CUSTOMER","ADMIN"]
+    }
+},{timestamp:true});
+
+export const User=mongoose.model("User",userSchema);//users

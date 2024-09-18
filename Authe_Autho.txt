@@ -1,0 +1,59 @@
+API - no security 
+
+1st 
+username & password 
+  req POST /register {"awdhesh","1244@#Awdd"}   password+encrypt {bcrypt}
+  res success
+  
+  req POST /login   {"awdhesh","1244@#Awdd"}   passs,query.user.pass {bcrypt}
+  res access Code or Token stored in cookie    jwt Token (user._id,"jgdguhfgyuegywe",{expireIn:'2d'})
+                                               req.cookie("tok",token,{maxAge:1300000,httpOnly:true})
+
+  to access any route middelware handle the auth via cookie token 
+
+every time cred are transfer its risky 
+so we use token 
+
+1>Create Nodejs Project 
+2>Define the Structure 
+       -Router is /path -> controller
+       -Controller  logic code that execute when path hits 
+       -Model Schema and Object of DB table or collection
+3>user 
+    -admin  - creation internal 
+    -costumer - through api
+4>dependencies 
+     -mongoose (ORM )-DB
+     -express fro RestAPI
+     -jsonwebtoken    for token 
+     -bcryopt for hashing of password 
+
+//?????? FEATURES
+AUTH===>>    --DONE--
+    -signup
+    -login
+    -logout
+Category===>> --DONE--
+     -Create
+     -fetch
+     -edit
+     -delete
+Product==>  --DONE--
+     -Create
+     -fetch
+     -edit
+     -delete
+Cart=====> --DONE--
+    -Create
+    -fetch
+    -edit
+    -delete
+
+
+
+????????????????????????????????????????????????????????????? API
+api>>>>>>>> Authentication
+     0.Server banan 
+     1.model user   Schema for databade
+     2.Controller    /signup /login /logout ---Fn1  ---Fn2  ---Fn3
+     3.Route    /signup + Fn1
